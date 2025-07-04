@@ -5,3 +5,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: aaron12345
+      MYSQL_DATABASE: budget_track
+    volumes: # this volume maps our local SQL file into the container and automatically run the SQL file on the container startup.
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    
